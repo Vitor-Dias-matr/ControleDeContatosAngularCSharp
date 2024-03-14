@@ -1,0 +1,13 @@
+.cartao {
+  width: 25%;
+}
+
+.alterarSenha {
+  text-decoration: none;
+  color: black;
+}
+
+.alterarSenha:hover {
+  text-decoration: underline;
+  color: blue;
+}

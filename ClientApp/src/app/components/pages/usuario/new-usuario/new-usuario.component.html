@@ -1,0 +1,63 @@
+<div class="m-5">
+  <h2 class="text-center">Adicionar Usuário</h2>
+
+  <hr>
+
+  <form (ngSubmit)="submit()" [formGroup]="usuarioForm" #formDir="ngForm">
+    <input type="hidden" formControlName="id">
+    <div class="d-flex justify-content-evenly">
+      <div class="form-group mb-2 w-25">
+        <label for="nome" class="form-label">Nome:</label>
+        <input type="text" class="form-control" formControlName="nome" placeholder="Digite seu nome" required>
+        <div *ngIf="nome.invalid && formDir.submitted" class="erro-validacao">
+          <p *ngIf="nome.errors?.['required']">O nome é obrigatório!</p>
+        </div>
+      </div>
+
+      <div class="form-group mb-2 w-25">
+        <label for="login" class="form-label">Login:</label>
+        <input type="text" class="form-control" formControlName="login" placeholder="Digite seu login" required>
+        <div *ngIf="login.invalid && formDir.submitted" class="erro-validacao">
+          <p *ngIf="login.errors?.['required']">O login é obrigatório!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-evenly">
+      <div class="form-group mb-2 w-25">
+        <label for="email" class="form-label">E-mail:</label>
+        <input type="text" class="form-control" formControlName="email" placeholder="Digite seu email" required>
+        <div *ngIf="email.invalid && formDir.submitted" class="erro-validacao">
+          <p *ngIf="email.errors?.['required']">O email é obrigatório!</p>
+          <p *ngIf="email.errors?.['email']">Este campo só aceita emails válidos!</p>
+        </div>
+      </div>
+
+      <div class="form-group mb-4 w-25">
+        <label for="senha" class="form-label">Senha:</label>
+        <input type="text" class="form-control" formControlName="senha" placeholder="Digite sua senha" required>
+        <div *ngIf="senha.invalid && formDir.submitted" class="erro-validacao">
+          <p *ngIf="senha.errors?.['required']">A senha é obrigatória!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group w-50 mx-auto">
+      <select class="form-select" formControlName="perfil" aria-label="Selecione">
+        <option value="" disabled selected hidden>Selecione</option>
+        <option value="1">Administrador</option>
+        <option value="2">Padrão</option>
+      </select>
+      <div *ngIf="perfil.invalid && formDir.submitted" class="erro-validacao">
+        <p *ngIf="perfil.errors?.['required']">O perfil é obrigatório!</p>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary me-2">Adicionar</button>
+      <a class="btn btn-secondary" routerLink="/usuario">Voltar</a>
+    </div>
+  </form>
+</div>

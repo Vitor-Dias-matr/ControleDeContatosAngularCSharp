@@ -1,0 +1,42 @@
+<div class="m-5">
+  <form (ngSubmit)="submit()" [formGroup]="alterarSenhaForm" #formDir="ngForm">
+    <h2 class="text-center">Alterar Senha</h2>
+
+    <hr>
+
+    <div class="d-flex justify-content-evenly">
+      <div class="form-group mb-2 w-25">
+        <label for="senhaAtual" class="form-label">Senha Atual:</label>
+        <input type="text" class="form-control" formControlName="senhaAtual" required>
+        <div *ngIf="senhaAtual.invalid && formDir.submitted" class="erro-validacao">
+          <p *ngIf="senhaAtual.errors?.['required']">A senha atual é obrigatória!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-evenly">
+      <div class="form-group mb-2 w-25">
+        <label for="novaSenha" class="form-label">Nova Senha:</label>
+        <input type="text" class="form-control" formControlName="novaSenha" required>
+        <div *ngIf="novaSenha.invalid && formDir.submitted" class="erro-validacao">
+          <p *ngIf="novaSenha.errors?.['required']">A nova senha é obrigatória!</p>
+        </div>
+      </div>
+
+      <div class="form-group mb-2 w-25">
+        <label for="confirmarNovaSenha" class="form-label">Confirmar Nova Senha:</label>
+        <input type="text" class="form-control" formControlName="confirmarNovaSenha" required>
+        <div *ngIf="confirmarNovaSenha.invalid && formDir.submitted" class="erro-validacao">
+          <p *ngIf="confirmarNovaSenha.errors?.['required']">A confirmação da nova senha é obrigatória!</p>
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary me-2">Alterar</button>
+      <a class="btn btn-secondary" routerLink="/">Voltar</a>
+    </div>
+  </form>
+</div>

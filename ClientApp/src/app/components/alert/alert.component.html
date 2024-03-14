@@ -1,0 +1,16 @@
+<div class="alertStyle mt-4 alert alert-primary d-flex justify-content-between w-50" role="alert" *ngIf="alertService.menssagemSucesso">
+  <div>
+    <p>{{alertService.menssagemSucesso}}</p>
+  </div>
+  <div>
+    <button type="button" class="btn-close" (click)="alertService.clear()" aria-label="Close"></button>
+  </div>
+</div>
+<div class="alertStyle mt-4 alert alert-danger d-flex justify-content-between w-50" role="alert" *ngIf="alertService.menssagemErro">
+  <div>
+    <p>{{alertService.menssagemErro}}</p>
+  </div>
+  <div>
+    <button type="button" class="btn-close" (click)="alertService.clear()" aria-label="Close"></button>
+  </div>
+</div>
